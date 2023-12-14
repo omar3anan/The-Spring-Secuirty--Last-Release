@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>NoLimit</title>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css"
+      rel="stylesheet"
+      integrity="sha384-oOE/3m0LUMPub4kaC09mrdEhIc+e3exm4xOGxAmuFXhBNF4hcg/6MiAXAf5p0P56"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: darkslategray;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>Students Name</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr th:each="tempStudent : ${students}">
+          <td th:text="${tempStudent.studentName}" />
+
+          <!-- <td>
+            <div class="row">
+              <div class="col-small">
+     
+                <a
+                  th:href="@{/employees/showFormForUpdate(employeeId=${tempStudent.id})}"
+                  class="btn btn-info btn-sm me-1"
+                >
+                  Update
+                </a>
+
+                <a
+                  th:href="@{/employees/delete(employeeId=${tempEmployee.id})}"
+                  class="btn btn-danger btn-sm"
+                  onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false"
+                >
+                  Deletex
+                </a>
+              </div>
+            </div>
+          </td> -->
+        </tr>
+      </tbody>
+    </table>
+    <a
+      th:href="@{/logout}"
+      class="btn btn-danger btn-sm"
+      onclick="if (!(confirm('Are you sure you want to logout ?'))) return false"
+    >
+      Logout
+    </a>
+  </body>
+</html>
